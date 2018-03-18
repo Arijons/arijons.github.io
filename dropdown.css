@@ -1,0 +1,54 @@
+/* dropdown valmynd sem fer upp*/
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    min-width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.topnav {
+    position: fixed;
+    bottom:0;/* festir valmynd á botninum*/
+    display: inline-block;
+    min-width: 100%;
+}
+
+.topmenu {
+    display: none;
+    position: absolute;
+    background-color: darkgreen;
+    min-width: 100%;
+    bottom: 100%;/* lætur valmynd fara upp*/
+    box-shadow: 0px 8px 30px 0px rgba(0,0,0,0.2);
+    z-index: -1;
+}
+
+.topmenu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.topmenu a:hover {background-color: lime;}
+
+.topnav:hover .topmenu {
+    display: block;
+}
+
+.topnav:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.icon {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
