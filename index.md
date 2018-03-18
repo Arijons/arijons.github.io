@@ -25,7 +25,7 @@ Syntax highlighted code block
 
 
 ```
-[vefsíða í verkefni 4](https://arijons.github.io/vefsida.html)
+[vefsíða í verkefni 4](https://rawgit.com/Arijons/arijons.github.io/master/vefsida.html)
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
