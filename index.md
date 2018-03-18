@@ -23,7 +23,7 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[vefsíða í verkefni 3](https://github.com/arijons.github.is/vefsida.html)
+[vefsíða í verkefni 3](https://github.com/arijons.github.io/vefsida.html)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
