@@ -1,0 +1,243 @@
+*, *:before, *:after {
+    box-sizing: border-box; 
+}
+
+/*heimild: https://gridbyexample.com/examples/example13/ */
+
+/* ====== GRID Area ====== */
+
+
+/* ====== GRID Template Areas ===== */
+
+
+/* ====== Base litir + padding ====== */
+
+body {
+  line-height: 1.5em;
+}
+
+
+.topnav {
+  background-color: ;
+  grid-area: topnav;
+}
+header {
+  background-color:tomato ;
+  grid-area: header; 
+}
+footer {
+  background-color:hotpink;
+  grid-area: footer; 
+}
+
+.midja {
+  background-color:yellow;
+
+}
+.vinstri, 
+.haegri {
+  background-color:aqua; 
+}
+
+
+
+
+header,
+footer,
+.midja,
+.vinstri, 
+.haegri {
+  padding: 1em; 
+}
+
+/* ====== leturstílar ====== */
+
+header h1 {
+  color: #fff;
+  line-height: 1.2;
+  font-weight: normal;
+}
+.midja h2 {
+  margin: .7em 0 .8em 0;
+}
+.midja h4 {
+  text-align: justify;
+  margin: .4em 0;
+}
+.midja p {
+  text-align: justify;
+}
+
+/* ========================================
+  Efnisyfirlit
+  ======================================== */
+
+.topmenu {
+  padding: 0;
+  margin: 0;
+  list-style: none; 
+  background-color: lime;
+}
+.topmenu li {
+  display: inline;
+  border: 0;S
+  border-bottom: 1px solid lime; 
+  padding: 0;
+}
+
+.topmenu a {
+  display: inline;     /* ath! */
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: .4em 2em; 
+}
+
+
+/* =======================================
+   Myndvinnsla  
+  ======================================== */
+
+/*  myndir <img> alltaf í 100% stærð munið að vinna og 
+    þjappa myndir í photoshop ! */
+
+
+.topnav {
+  grid-area: topnav;
+}
+
+.topmenu {
+  grid-area: topmenu;
+}
+header {
+  grid-area: header; 
+
+}
+footer {
+  grid-area: footer; 
+}
+
+.midja {
+  grid-area: midja;
+}
+.vinstri{
+  grid-area:vinstri;
+}
+.haegri{
+  grid-area: haegri;
+}
+
+
+
+/*  ========================================
+  Viðmið - breakpoints 48em 
+  ==========================
+
+  ==============*/
+
+/*allt minna en 48em */
+
+@media only screen and (max-width: 48em) {
+   body {
+    display:grid;
+    grid-template-areas: 
+    "header"
+    "haegri"
+    "vinstri"
+    "midja"
+    "footer"
+    "topnav"
+    }
+
+  .box-set{
+    overflow: auto;
+  }
+
+
+  
+
+}
+/* allt stærra en 48em*/
+@media only screen and (min-width: 48em){
+
+
+  .topnav{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "topmenu topmenu"}
+
+
+  .header{
+    display:grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas:
+    "header header "}
+  
+  .content{
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    grid-template-areas:
+    "haegri midja"
+    "vinstri midja"}
+  
+  .footer{
+    grid-template-columns: 1fr 2fr; 
+    grid-template-areas:
+    "footer footer"
+
+  }
+  .box-set{
+    overflow: auto;
+  }
+
+ 
+    
+  }  
+
+@media only screen and (min-width: 48em) and (max-width: 60em){
+  body{
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    background-color: burlywood;  
+  }
+
+  .topnav{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-areas:
+    "topmenu topmenu topmenu"}
+
+
+  .header{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-areas:
+    "header header header"}
+  
+  .content{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; 
+    grid-template-areas:
+    "vinstri midja haegri"
+    }
+  
+  .footer{
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-areas:
+    "footer footer footer"
+
+  }
+   .box-set{
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction:column;
+
+  }
+
+ 
+  }  
+    
