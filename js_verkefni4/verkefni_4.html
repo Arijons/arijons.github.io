@@ -14,11 +14,13 @@ canvas {
 <script>
 
 var myGamePiece;
+var myObstacle;
 var myBackground;
 var myScore;
 
 function startGame() {
     myGamePiece = new component(30, 30, "happy.png", 10, 120, "image");
+    myObstacle = new component(10,100,"black",300,180)
     myBackground = new component(656, 270, "Black_sand_beach,_Iceland.jpg", 0, 0, "image");
     myScore = new component("20px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
@@ -53,7 +55,26 @@ function component(width, height, color, x, y, type) {
     this.speedX = 0;
     this.speedY = 0;    
     this.x = x;
-    this.y = y;    
+    this.y = y;
+    this.crashWith = function(otherobj) {
+    var myleft = this.x;
+    var myright = this.x + (this.width);
+    var mytop = this.y;
+    var mybottom = this.y + (this.height);
+    var otherleft = otherobj.x;
+    var otherright = otherobj.x + (otherobj.width);
+    var othertop = otherobj.y;
+    var otherbottom = otherobj.y + (otherobj.height);
+    var crash = true;
+    if ((mybottom < othertop) ||
+    (mytop > otherbottom) ||
+    (myright < otherleft) ||
+    (myleft > otherright)) {
+      crash = false;
+    }
+    return crash;
+  }
+  
     this.update = function() {
         ctx = myGameArea.context;
         if (type == "image") {
@@ -74,17 +95,23 @@ function component(width, height, color, x, y, type) {
         this.x += this.speedX;
         this.y += this.speedY;        
     }    
+
 }
 
 function updateGameArea() {
-    myGameArea.clear();
-    myGameArea.frameNo +=1; 
-    myBackground.newPos();    
-    myBackground.update();
-    myScore.text = "Stig:" + myGameArea.frameNo;
-    myScore.update();
-    myGamePiece.newPos();    
-    myGamePiece.update();
+    if (myGamePiece.crashWith(myObstacle)) {
+        myGameArea.stop();
+    } else {
+        myGameArea.clear();
+        myGameArea.frameNo +=1; 
+        myBackground.newPos();    
+        myBackground.update();
+        myObstacle.update();
+        myScore.text = "Stig:" + myGameArea.frameNo;
+        myScore.update();
+        myGamePiece.newPos();    
+        myGamePiece.update();
+    }
 }
 
 function move(dir) {
