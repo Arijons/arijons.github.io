@@ -1,6 +1,6 @@
 
 
-[vefsíða í verkefni 4](https://arijons.github.io/vefsida.html)
+[vefsíða í verkefni 4](https://arijons.github.io/verkefni_4/verkefni_4.html)
 
 
 [Lokaverkefni](https://arijons.github.io/form.html)
