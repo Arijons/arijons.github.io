@@ -131,10 +131,10 @@ function updateGameArea() {
 //ákveður hvaða átt kallinn fer og setur angry look á hann
 function move(dir) {
     myGamePiece.image.src = "angry.png";
-    if (dir == "up") {myGamePiece.speedY = -1; }
-    if (dir == "down") {myGamePiece.speedY = 1; }
-    if (dir == "left") {myGamePiece.speedX = -1; }
-    if (dir == "right") {myGamePiece.speedX = 1; }
+    if (dir == "up") {myGamePiece.speedY = -2; }
+    if (dir == "down") {myGamePiece.speedY = 2; }
+    if (dir == "left") {myGamePiece.speedX = -2; }
+    if (dir == "right") {myGamePiece.speedX = 2; }
 }
 //þetta er fallið sem er notað þegar er ekki verið að ýta á pílurnar þá er happy andlitið notað og hluturinn verður kurr.
 function clearmove() {
