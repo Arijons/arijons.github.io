@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel='stylesheet' type='text/css' href='quiz_app.css' />
+  <meta charset="UTF-8">
+  <title>Spurningaleikur</title>
+</head>
+<body>
+
+<div id="quiz"></div>
+<button id="submit">Fá Niðurstöðu</button>
+<div id="results"></div>
+
+
+
+<script>
+let myQuestions = [
+    {
+        question: "Hvað er 15/5?",
+        answers: {
+            a: '3',
+            b: '5',
+            c: '115',
+            d: '4'
+        },
+        correctAnswer: 'a'
+    },
+    {
+        question: "Hvað er  29%3?",
+        answers: {
+            a: '3',
+            b: '2',
+        },
+        correctAnswer: 'b'
+    }
+];
+
+let quizContainer = document.getElementById('quiz');
+let resultsContainer = document.getElementById('results');
+let submitButton = document.getElementById('submit');
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
+
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+    function showQuestions(questions, quizContainer){
+        // null stillum í þessar breytur
+        let output = [];
+        let answers;
+
+        // loobum yfir tvær spurningar (i=0 eða i=1)
+        for(var i=0; i<questions.length; i++){
+        	console.log(i)
+            
+            // null stillum listann með svörunum
+            answers = [];
+
+            // lobba yfir öll svör sem til eru
+            for(letter in questions[i].answers){
+                // hér er búinn til val (radio) takki fyrir hvert svar
+                answers.push(
+                    '<label>'
+                        + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                        + letter + ': '
+                        + questions[i].answers[letter]
+                    + '</label>'
+                );
+            }
+
+            // hér er búinn til html strengur fyrir hverja spurningu og búið til sértækur div classi fyrir sprningar og svör
+            output.push(
+                '<div class="question">' + questions[i].question + '</div>'
+                + '<div class="answers">' + answers.join('') + '</div>'
+            );
+        }
+
+        // Hér er html strengurinn settur inn í html document.
+        quizContainer.innerHTML = output.join('');
+        console.log(quizContainer);
+    }
+
+
+    function showResults(questions, quizContainer, resultsContainer){
+        
+        // hér nær maður öll í svörin 
+        var answerContainers = quizContainer.querySelectorAll('.answers');
+        
+        // hér heldur maður utan umm svör notanda
+        let userAnswer = '';
+        let numCorrect = 0;
+        
+        // looba fyrir hvert svar
+        for(var i=0; i<questions.length; i++){
+
+            // finna svrið sem var hakað við
+            userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+            
+            // ef svarið er rétt
+            if(userAnswer===questions[i].correctAnswer){
+                // hækka rétt svar um einn
+                numCorrect++;
+                
+                // rétt svar = grænt
+                answerContainers[i].style.background = 'lightgreen';
+            }
+            // ef svarið er rangt eða tómt 
+            else{
+                // rangt svar = rautt
+                answerContainers[i].style.background = 'red';
+            }
+        }
+
+        // sýna fjölda svara allt í allt
+        resultsContainer.innerHTML = numCorrect + ' af ' + questions.length;
+    }
+
+    // sýna spurningar strax
+    showQuestions(questions, quizContainer);
+    
+    // þegar er ýtt á niður stöðutakkann, niðurstaða sýnd
+    submitButton.onclick = function(){
+        showResults(questions, quizContainer, resultsContainer);
+    }
+
+}
+
+</script> 
+</body>
+
