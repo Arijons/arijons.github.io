@@ -1,5 +1,5 @@
 /*
-Dynami filter, leyfa notendum að filtera innihald á vefsíðunni, bls. 538 - 543
+Dynamic filter, leyfa notendum að filtera innihald á vefsíðunni, bls. 538 - 543
 Sýnidæmi: http://javascriptbook.com/code/c12/dynamic-filter.html
 
 Þú byggir allt html innihald.
