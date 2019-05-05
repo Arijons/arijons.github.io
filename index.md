@@ -1,6 +1,9 @@
 
 
-[Javascript verkefni 6](https://arijons.github.io/verkefni6/dynamic-filter.html)
+[Javascript verkefni 6 filter með slæder](https://arijons.github.io/verkefni6/dynamic-filter.html)
+
+[Javascript verkefni 6 filter með slæder](https://arijons.github.io/verkefni6/myndir.html)
+
 
 [Javascript verkefni 4](https://arijons.github.io/js_verkefni4/verkefni_4.html)
 
