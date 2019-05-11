@@ -1,4 +1,4 @@
-
+[Javascript verkefni 7]()
 
 [Javascript verkefni 6 filter með slæder](https://arijons.github.io/verkefni6/dynamic-filter.html)
 
@@ -9,6 +9,8 @@
 
 
 [quizapp](https://arijons.github.io/quiz_app/quiz_app.html)
+
+
 
 
 
