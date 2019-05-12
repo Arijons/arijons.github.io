@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel = "stylesheet" type = "text/css" href = "css/listar.css" />
+<script type="text/javascript" src="script/moment.js"></script>
 </head> 
 <body> 
   <h1>Tónleikar</h1>
@@ -10,9 +11,9 @@
   </div>
 
 
-    <button class="btn active" onclick="filterSelection('kirk')">Kirkjulistahátíð </button>
-    <button class="btn" onclick="filterSelection('ton')">Tónleikar</button>
-    <button class="btn" onclick="filterSelection('ann')">Annað</button>
+    <button class="btn active" onclick="tonleikar('Kirkjulistahátíð 2019')">Kirkjulistahátíð </button>
+    <button class="btn" onclick="tonleikar('Tónleikar')">Tónleikar</button>
+    <button class="btn" onclick="tonleikar('Allt')">Allt</button>
 
 
   <input type="date" id="frá" placeholder="dagsetning frá">
@@ -21,7 +22,6 @@
 
   <ul id="concertar"></ul>
 
-</div>
 
 <script>
   function createNode(element) {
@@ -32,41 +32,66 @@
     return parent.appendChild(el);
   }
 
-  const ul = document.getElementById('concertar');
-  var vigur=[];
-  const url = 'https://apis.is/concerts';
+  function tonleikar(val){
 
-  fetch(url)
-  .then((resp) => resp.json())
-  .then(function(data) {
-    concerts = data.results;
-    return concerts.map(function(concert) {
-      let li = createNode('li'),
-          img = createNode('img'),
-          span = createNode('span');
-      img.src = concert.imageSource;
-      span.innerHTML =`${concert.eventDateName} ${concert.dateOfShow}`;
-      append(li,img);
-      append(li, span);
-      append(ul, li);
+    const ul = document.getElementById('concertar');
+    ul.innerHTML=""
+    console.log(ul)
+    var vigur=[];
+    const url = 'https://apis.is/concerts';
+
+    fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data) {
+      concerts = data.results;
+      
+      if (val!=="Allt"){
+        console.log("khkh")
+        concerts = concerts.filter(function(concert){
+          return concert.name===val;});
+      };
+      return concerts.map(function(concert) {
+        let li = createNode('li'),
+            img = createNode('img'),
+            span = createNode('span');
+        img.src = concert.imageSource;
+        var dagsetning = concert.dateOfShow
+        dagsetning = dagsetning.slice(0,10)
+        dagsetning = moment(dagsetning, "YYYY/MM/DD").fromNow()
+        console.log(dagsetning)
+        span.innerHTML =`${concert.eventDateName} ${dagsetning}`;
+        append(li,img);
+        append(li, span);
+        append(ul, li);
+        console.log(concert.dateOfShow)
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
     });
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
+  }
+
+    tonleikar("Kirkjulistahátíð 2019");
+  /*
   var fyrirSpurn =
   fetch(url)
   .then(function(resp) {
     return resp.json()
   });
 
-  consFyrirsp={"fyrirSpurn":{}};
+  var consFyrirsp={"fyrirSpurn":{}};
   Promise.all([fyrirSpurn])
   .then (function(values){
     consFyrirsp["fyrirSpurn"]=values[0];
-    return consFyrirsp;
+    return values[0].results;
   });
-  console.log(consFyrirsp)
+
+  consFyrirsp.results;
+
+*/
+
+
+ 
 
 
 </script>
