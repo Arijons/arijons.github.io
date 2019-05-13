@@ -1,3 +1,6 @@
+
+[leikjaforritun verkefni 5](https://arijons.github.io/verkefni7/concertar_1.html)
+
 [Javascript verkefni 7](https://arijons.github.io/verkefni7/concertar_1.html)
 
 [Javascript verkefni 6 filter með slæder](https://arijons.github.io/verkefni6/dynamic-filter.html)
