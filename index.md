@@ -1,5 +1,5 @@
 
-[leikjaforritun verkefni 5](https://arijons.github.io/verkefni5/UFO Leikur.exe)
+[leikjaforritun verkefni 5](https://github.com/Arijons/FORR3FL05EU.wiki.git)
 
 [Javascript verkefni 7](https://arijons.github.io/verkefni7/concertar_1.html)
 
